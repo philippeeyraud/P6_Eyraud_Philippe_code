@@ -1,3 +1,5 @@
+//On va créer un modele user avec mongoose et on va créer un schema en utilisant la fonction schéma de mongoose
+//On va exporter ce schema sous forme de model (user)
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const userSchema = mongoose.Schema({
