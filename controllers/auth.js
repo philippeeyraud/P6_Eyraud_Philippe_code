@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const user = require('../models/user');
+const auth = require('../models/user');
 
 //Création de nouveau user à partir de l'app frontend
 //On récupere le hash du mot de passe que l'on va enregistrer ds un nouveau user ds la base de donnée
