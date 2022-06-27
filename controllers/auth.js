@@ -1,6 +1,7 @@
+
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const User = require('../models/user');
+const user = require('../models/user');
 
 //Création de nouveau user à partir de l'app frontend
 //On récupere le hash du mot de passe que l'on va enregistrer ds un nouveau user ds la base de donnée
@@ -8,11 +9,11 @@ const User = require('../models/user');
 exports.signup =(req, res, next) => {
 bcrypt.hash(req.body.password, 10)
    .then(hash => {
-      const user = new User({
+      const user = new user({
          email: req.body.email,
          password: hash
     })
-    user.save()
+     user.save()
       .then(() => res.status(201).json({message: 'Utilisateur crée!'}))
       .catch(error => res.status(400).json({error}));
          })
@@ -24,7 +25,7 @@ bcrypt.hash(req.body.password, 10)
   //On compare le mot de passe entré avec le hash donné ds la base de donnée
   //Si la comparaison est bonne on lui revoi le userid et le token
   exports.login = (req, res, next) =>{
-   User.findOne({ email: req.body.email})
+   user.findOne({ email: req.body.email})
   .then(user => {
     if (user === null) {
        res.status(401).json({ message: 'Paire identifiant /mot de passe incorect'});
@@ -38,7 +39,11 @@ bcrypt.hash(req.body.password, 10)
             else{
             res.status(200).json({
                userId: user._id,
-              token: 'TOKEN'
+               token:jwt.sign(
+               { userId: user_id},
+               'RANDOM_TOKEN_SECRET',
+               { expireIn:'24h' }
+              )
             });
 
             }
