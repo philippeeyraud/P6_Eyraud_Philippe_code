@@ -1,0 +1,19 @@
+/*exports.signup =(req, res, next) => {
+  console.log(`req body = ${JSON.stringify(req.body)}`);
+bcrypt.hash(req.body.password, 10)
+   .then(hash => {
+      console.log(hash);
+      const user = new User({
+         email: req.body.email,
+         password: hash          
+      })
+      console.log(`user = ${JSON.stringify(user)}`);  
+      user.save()
+      .then(() => res.status(201).json({message: 'Utilisateur crée!'}))
+      .catch((error) => {
+         console.log (`error ${error}`);
+         return res.status(400).json({error})
+      }
+      );
+    })
+   .catch(error => res.status(500).json({error}));*/

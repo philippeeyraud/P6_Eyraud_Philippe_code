@@ -1,3 +1,4 @@
+
 //importer mongoose 
 const mongoose = require('mongoose');
 //On va créer notre schéma de données

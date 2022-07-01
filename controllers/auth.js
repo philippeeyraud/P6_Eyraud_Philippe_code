@@ -1,22 +1,31 @@
 
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
-const user = require('../models/user');
+const jwt = require('jsonwebtoken');
+const { Console } = require('winston/lib/winston/transports');
+const { findOne } = require('../models/User');
+const User = require('../models/User');
 
 //Création de nouveau user à partir de l'app frontend
 //On récupere le hash du mot de passe que l'on va enregistrer ds un nouveau user ds la base de donnée
 //On enregistre le user ds la base de donnée
 exports.signup =(req, res, next) => {
+   console.log(`req body = ${JSON.stringify(req.body)}`);
 bcrypt.hash(req.body.password, 10)
    .then(hash => {
-      const user = new user({
+      console.log(hash);
+      const user = new User({
          email: req.body.email,
          password: hash
     })
+    console.log(`user = ${JSON.stringify(User)}`);  
      user.save()
       .then(() => res.status(201).json({message: 'Utilisateur crée!'}))
-      .catch(error => res.status(400).json({error}));
-         })
+      .catch((error) => {
+         console.log (`error ${error}`);
+         return res.status(400).json({error})
+      }
+      );
+    })
    .catch(error => res.status(500).json({error}));
  
    };
@@ -25,10 +34,14 @@ bcrypt.hash(req.body.password, 10)
   //On compare le mot de passe entré avec le hash donné ds la base de donnée
   //Si la comparaison est bonne on lui revoi le userid et le token
   exports.login = (req, res, next) =>{
-   user.findOne({ email: req.body.email})
+
+   User.findOne({ email: req.body.email})
+
   .then(user => {
     if (user === null) {
        res.status(401).json({ message: 'Paire identifiant /mot de passe incorect'});
+      console.log('findOne , email')
+        
     }
     else {
       bcrypt.compare(req.body.password, user.password)
@@ -36,6 +49,7 @@ bcrypt.hash(req.body.password, 10)
             if(!valid) {
                 res.status(401).json({ message: 'Paire identifiant /mot de passe incorect'});
             }
+         
             else{
             res.status(200).json({
                userId: user._id,
