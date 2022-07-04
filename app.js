@@ -1,14 +1,12 @@
-//importer express
+//importer express pour créer un router
 //création de l'application express
 //Importation de mongoose et connection à mongoDB. Utilisation de .end pour permettre al'utilisateur de mettre ses propres info sans toucher au code.
 const express = require('express');
 require("dotenv").config()
-
 const app = express();
-
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
-//const saucesRoutes = require('./routes/sauces');
+const saucesRoutes = require('./routes/sauces');
 mongoose.connect(`${process.env.DB_URL}://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL_CLUSTER}`,
     {
         useNewUrlParser: true,
@@ -32,8 +30,8 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 
-//app.use('/api/sauces', saucesRoutes);
-
+app.use('/api/sauces', saucesRoutes)
+console.log(saucesRoutes)
 
 //export de l application express pour que l'on puisse y accèder depuis les fichiers de notre projet et particulierement node.
 module.exports = app;

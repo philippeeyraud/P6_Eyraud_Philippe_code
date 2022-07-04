@@ -17,9 +17,11 @@ bcrypt.hash(req.body.password, 10)
          email: req.body.email,
          password: hash
     })
-    console.log(`user = ${JSON.stringify(user)}`);  
-     User.save()
+    console.log(`user = ${JSON.stringify(User)}`)
+     user.save()
+
       .then(() => res.status(201).json({message: 'Utilisateur crée!'}))
+
       .catch((error) => {
          console.log (`error ${error}`);
          return res.status(400).json({error})
