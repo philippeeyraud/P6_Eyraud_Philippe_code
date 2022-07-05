@@ -1,17 +1,18 @@
+
 const sauces = require('../models/sauce');
 exports.createSauces = (req, res, next) => {
 
     const sauces = new sauces({
-           ...req.body
-       });
-       //Enregistrer l'objet ds la base
-       sauces.save()
-           .then(() => res.status(201).json({
-               message: 'Objet enregistré !'
-           }))
-           .catch(error => res.status(400).json({ error }));
-   };
-   exports.modifySauces = (req, res, next) => {
+        ...req.body
+    });
+    //Enregistrer l'objet ds la base
+    sauces.save()
+        .then(() => res.status(201).json({
+            message: 'Objet enregistré !'
+        }))
+        .catch(error => res.status(400).json({ error }));
+};
+exports.modifySauces = (req, res, next) => {
     sauces.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Objet modifié !' }))
         .catch(error => res.status(400).json({ error }));
