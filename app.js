@@ -7,6 +7,7 @@ const app = express();
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const saucesRoutes = require('./routes/sauces');
+const path = require('path');
 mongoose.connect(`${process.env.DB_URL}://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL_CLUSTER}`,
     {
         useNewUrlParser: true,
@@ -27,11 +28,10 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-
 app.use('/api/auth', authRoutes);
-
 app.use('/api/sauces', saucesRoutes)
 console.log(saucesRoutes)
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 //export de l application express pour que l'on puisse y accèder depuis les fichiers de notre projet et particulierement node.
 module.exports = app;
