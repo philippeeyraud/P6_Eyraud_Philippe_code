@@ -13,14 +13,14 @@ const sauceCtrl = require('../controllers/sauces');
 //on rajoute l'url visée par l'application(la route)
 //On va utiliser la methode find, on veut la liste complete des objets, on récupère le tableau de la collection sauce (things)retournés  par la base de donnée et on les renvoie avec un code 200.
 
-router.post('/', auth, multer, sauceCtrl.createSauces);
+router.post('/', auth, multer, sauceCtrl.createSauce);
 
 
-router.put('/:id', auth,multer,sauceCtrl.modifySauces);
-router.delete('/:id', auth ,sauceCtrl.deleteSauces);
+router.put('/:id', auth,multer,sauceCtrl.modifySauce);
+router.delete('/:id', auth ,sauceCtrl.deleteSauce);
 router.get('/:id',auth , sauceCtrl.getOneSauce);
-router.get('/',auth  , sauceCtrl.getAllSauces);
-router.post('/:id/like', auth, sauceCtrl.createSauces);
+router.get('/',auth  , sauceCtrl.getAllSauce);
+router.post('/:id/like', auth, sauceCtrl.createSauce);
 
 
 
