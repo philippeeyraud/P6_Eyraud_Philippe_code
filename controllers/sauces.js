@@ -93,8 +93,7 @@ exports.createLike = (req, res) => {
                 }
                 res.status(200).json({ message: 'Like acceptés !' })
 
-                .catch(error => res.status(400).json({error}));
-
+console.log(likes)
             }
 
 
