@@ -16,4 +16,4 @@ const sauceSchema = mongoose.Schema({
     usersDisliked: {type:[String] , required:false }
 });
 //Pour que ce schema soit utilisable,on va exporter mongoose.model pour utiliser notre schema ds la base de donnée.
-module.exports = mongoose.model('sauce', sauceSchema);
+module.exports = mongoose.model('Sauce', sauceSchema);

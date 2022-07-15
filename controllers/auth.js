@@ -16,7 +16,7 @@ bcrypt.hash(req.body.password, 10)
          email: req.body.email,
          password: hash
     })
-    console.log(`user = ${JSON.stringify(user)}`)
+    console.log(`user = ${JSON.stringify(user)}`);
      user.save()
 
       .then(() => res.status(201).json({message: 'Utilisateur crée!'}))
@@ -56,7 +56,7 @@ bcrypt.hash(req.body.password, 10)
                userId: user._id,
                token: jwt.sign(
                   { userId: user._id},
-                     process.env.SECRET_TOKEN,
+                     process.env.SECRET_TOKEN
                      
                )
                
