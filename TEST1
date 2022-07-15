@@ -1,0 +1,51 @@
+//Integration du dislike et du like
+//La personne n'aime pas la sauce, ajout d'un dislike,ajout du username et du dislike ds le tabbleau
+//La personne aime la sauce, ajout d'un like, ajout du username plus like dans le tableau  
+//La personne a fait une erreur
+/*exports.createLike = (req, res) => {
+    try {
+       sauce.findOne({
+            _id: req.params.id
+
+        })
+            .then(sauce => {
+                if (req, body.like == -1) {
+                    sauce.disliked++;
+                    sauce.usersDisliked.push(req.body.userId);
+                    sauce.save();
+                }
+                if (req, body.like == 1) {
+                    sauce.liked++;
+                    sauce.usersLiked.push(req.body.userId);
+                    sauce.save();
+                }
+
+                if (req.body.like == 0) {
+
+                    if (sauce.usersLiked.indexOf(req.body.userId) != -1) {
+                        sauce.likes--;
+                        sauce.userLiked.splice(sauce.usersLiked.indexOf(req.body.userId), 1);
+                    } else {
+                        sauce.dislikes--;
+                        sauce.usersDisliked.splice(sauce.usersDisliked.indexOf(req.body.userId), 1);
+
+                    }
+                    sauce.save();
+                }
+                res.status(201).json({ message: 'Like acceptés !' })
+                    .catch(error => { res.status(400).json({ error }) });
+
+            }
+              
+                   
+            )}
+
+    catch (error) {
+        console.log(`erreur  ${error}`);
+        return res.status(500).json({ error });
+    }
+}
+*/
+
+
+

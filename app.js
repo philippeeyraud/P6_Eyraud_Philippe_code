@@ -30,7 +30,6 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/sauces', saucesRoutes)
-console.log(saucesRoutes)
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 //export de l application express pour que l'on puisse y accèder depuis les fichiers de notre projet et particulierement node.

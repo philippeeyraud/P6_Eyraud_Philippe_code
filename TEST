@@ -32,7 +32,7 @@ try {
 
     console.log(JSON.stringify(req.body));
 
-    const sauceObject = JSON.parse(req.body.sauce);
+    const sauceObject = JSON.parse(req.body.sauces);
     delete sauceObject._id;
     delete sauceObject._userId;
     console.log("ICI");

@@ -1,8 +1,7 @@
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { Console } = require('winston/lib/winston/transports');
-const { findOne } = require('../models/user');
+
+
 const User = require('../models/user');
 
 //Création de nouveau user à partir de l'app frontend
@@ -17,7 +16,7 @@ bcrypt.hash(req.body.password, 10)
          email: req.body.email,
          password: hash
     })
-    console.log(`user = ${JSON.stringify(User)}`)
+    console.log(`user = ${JSON.stringify(user)}`)
      user.save()
 
       .then(() => res.status(201).json({message: 'Utilisateur crée!'}))
@@ -57,7 +56,7 @@ bcrypt.hash(req.body.password, 10)
                userId: user._id,
                token: jwt.sign(
                   { userId: user._id},
-                     'RANDOM_TOKEN_SECRET',
+                     process.env.SECRET_TOKEN,
                      
                )
                
@@ -74,10 +73,11 @@ bcrypt.hash(req.body.password, 10)
   .catch(error =>{res.status(500).json({ error});
 }) 
 };
-  
 
 
-  
+
+
+
 
 
 
@@ -86,11 +86,5 @@ bcrypt.hash(req.body.password, 10)
  //Verifier que le mail a un bon format
     // formValidation.email = validateControl(this, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$", "emailErrorMsg", "Email non valide");
  //Utiliser crypto js pour hacher le mail
- 
 
- //Au niveau du login 
- //Gestion du token
- //Verifier que l utilisateur existe ds la base de donnée
- //si il exsiste retourne un token et un status200
- //si il n'existe pas retourne un status 401
- //Bcryt.compare pour comparer le password saisie et le password ds la base
+
