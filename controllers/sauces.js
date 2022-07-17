@@ -66,34 +66,35 @@ exports.createLike = (req, res) => {
 
         })
             .then(sauce => {
-                if (req.body.likes == -1) {
-                    sauce.disliked++;
+                if (req.body.like == -1) {
+                    sauce.dislikes++;
                     sauce.usersDisliked.push(req.body.userId);
                     sauce.save();
-
+                  
                 }
 
-                if (req.body.likes == 1) {
-                    sauce.liked++;
+                if (req.body.like == 1) {
+                    sauce.likes++;
                     sauce.usersLiked.push(req.body.userId);
                     sauce.save();
                 }
 
-                if (req.body.likes == 0) {
+                if (req.body.like == 0) {
 
                     if (sauce.usersLiked.indexOf(req.body.userId) != -1) {
                         sauce.likes--;
-                        sauce.userLiked.splice(sauce.usersLiked.indexOf(req.body.userId), 1);
+                        sauce.usersLiked.splice(sauce.usersLiked.indexOf(req.body.userId), 3);
                     } else {
                         sauce.dislikes--;
-                        sauce.usersDisliked.splice(sauce.usersDisliked.indexOf(req.body.userId), 1);
+                        sauce.usersDisliked.splice(sauce.usersDisliked.indexOf(req.body.userId), 3);
 
                     }
                     sauce.save();
+
                 }
                 res.status(200).json({ message: 'Like acceptés !' })
 
-console.log(likes)
+
             }
 
 
