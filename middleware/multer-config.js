@@ -1,5 +1,8 @@
 //Comment gerer les fichiers ou les enregistrer et quel nom leurs donner
+
 const multer = require('multer');
+const fs = require('fs');
+
 
 //dictionaire
 const MIME_TYPES = {
@@ -8,6 +11,23 @@ const MIME_TYPES = {
     'image/png': 'png'
 
 };
+//Création d' un dossier image
+const imageDir = "./images";
+if(fs.existsSync(imageDir)) {
+    console.log("Dossier image déjà créé")
+}else {
+    fs.mkdir('./images', (err) => {
+        if (err) {
+            return console.error(err);
+        }
+        console.log('Dossier images crée !');
+    });
+}
+
+
+
+
+
 //Création d'un objet de configuration pour multer(storage)
 //L'objet de configuration a besoin de deux elements
 const storage = multer.diskStorage({

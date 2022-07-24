@@ -1,7 +1,5 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
-
 const User = require('../models/user');
 
 //Création de nouveau user à partir de l'app frontend
@@ -33,7 +31,7 @@ bcrypt.hash(req.body.password, 10)
   //On utilise login pour que l'utilisateur existant puisse se connecter à l'application
   //On va trouver le user, ds la base de donnée ,qui correspond à l'adresse email qui est rentré par l'utilisateur ds l'appliocation 
   //On compare le mot de passe entré avec le hash donné ds la base de donnée
-  //Si la comparaison est bonne on lui revoi le userid et le token
+  //Si la comparaison est bonne on lui renvoi le userid et le token
   exports.login = (req, res, next) =>{
 
    User.findOne({ email: req.body.email})

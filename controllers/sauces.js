@@ -1,5 +1,6 @@
 const Sauce = require('../models/sauce');
-
+const fs = require('fs');
+const { json } = require('express');
 //L'objet requête va etre envoyée sous forme Json mais en chaîne de caractere donc il faut parser cet objet
 //On va supprimer deux champs _id(id de l'objet va être genéré par la base de données), et userId(la personne qui a crée l objet)
 //On va utiliser le userId du token d'auth.
@@ -34,15 +35,61 @@ exports.createSauce = (req, res, next) => {
     }
 
 };
+
 exports.modifySauce = (req, res, next) => {
-    Sauce.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-        .then(() => res.status(200).json({ message: 'Objet modifié !' }))
-        .catch(error => res.status(400).json({ error }));
+    //Teste l'existence de file(ce qui indique qu'on change d'image)
+    //Si il y a un champ file on va récupérer l'objet sauce correspondant a en parsan la chaine de caractères
+    //Et l'on recree l'url de l'image
+    //Si il ny a pas de fichier, on récupère l'objet directement ds le corps de la requête
+    //On va chercher la sauce correspondant à l'utilisateur
+    const sauceObjet = req.file ? {
+        ...JSON.parse(req.body.sauce),
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    } : { ...req.body };
+
+    Sauce.findOne({ _id: req.params.id })
+        .then((sauce) => {
+            if (sauce.userId != req.auth.userId) {
+                res.status(401).json({ message: 'Not authorised' });
+            } else {
+                Sauce.updateOne({ _id: req.params.id }, { ...sauceObjet, _id: req.params.id })
+                    .then(() => res.status(200).json({ message: 'Objet modifié !' }))
+                    .catch(error => res.status(401).json({ error }));
+                const filename = sauce.imageUrl.split('/images/')[1];
+              
+            }
+
+
+
+
+        })
+        .catch((error) => {
+            res.status(401).json({ error })
+
+        });
+
 };
+
+
+
+
 exports.deleteSauce = (req, res, next) => {
     Sauce.deleteOne({ _id: req.params.id })
-        .then(() => res.status(200).json({ message: 'Objet supprimé !' }))
-        .catch(error => res.status(400).json({ error }))
+        .then(sauce => {
+            if (sauce.userId != req.auth.userId) {
+                res.status(401).json({ message: 'Non-autorisé' });
+            } else {
+                const filename = sauce.imageUrl.split('/images/')[1];
+                fs.unlink(`images/${filename}`, () => {
+                    sauce.deleteOne({ _id: req.params.id })
+                        .then(() => { res.status(200).json({ message: 'Objet supprimé !' }) })
+                        .catch(error => res.status(400).json({ error }));
+                });
+            }
+
+
+
+        })
 };
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
@@ -70,7 +117,7 @@ exports.createLike = (req, res) => {
                     sauce.dislikes++;
                     sauce.usersDisliked.push(req.body.userId);
                     sauce.save();
-                  
+
                 }
 
                 if (req.body.like == 1) {
@@ -106,6 +153,10 @@ exports.createLike = (req, res) => {
         return res.status(500).json({ error });
     }
 }
+
+
+
+
 
 
 
