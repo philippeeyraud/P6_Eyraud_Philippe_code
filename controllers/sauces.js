@@ -38,7 +38,7 @@ exports.createSauce = (req, res, next) => {
 
 exports.modifySauce = (req, res, next) => {
     //Teste l'existence de file(ce qui indique qu'on change d'image)
-    //Si il y a un champ file on va récupérer l'objet sauce correspondant a en parsan la chaine de caractères
+    //Si il y a un champ file on va récupérer l'objet sauce correspondant  en parsan la chaine de caractères
     //Et l'on recree l'url de l'image
     //Si il ny a pas de fichier, on récupère l'objet directement ds le corps de la requête
     //On va chercher la sauce correspondant à l'utilisateur
@@ -56,7 +56,7 @@ exports.modifySauce = (req, res, next) => {
                     .then(() => res.status(200).json({ message: 'Objet modifié !' }))
                     .catch(error => res.status(401).json({ error }));
                 const filename = sauce.imageUrl.split('/images/')[1];
-              
+
             }
 
 
@@ -90,7 +90,12 @@ exports.deleteSauce = (req, res, next) => {
 
 
         })
+        .catch(error => {
+            res.status(500).json({ error })
+        });
 };
+       
+
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
         .then(sauces => res.status(200).json(sauces))

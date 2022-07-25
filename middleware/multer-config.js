@@ -11,7 +11,7 @@ const MIME_TYPES = {
     'image/png': 'png'
 
 };
-//Création d' un dossier image
+//Création d'un dossier image
 const imageDir = "./images";
 if(fs.existsSync(imageDir)) {
     console.log("Dossier image déjà créé")
