@@ -7,17 +7,18 @@ const User = require('../models/user');
 //On enregistre le user ds la base de donnée
 exports.signup = (req, res, next) => {
    console.log(`req body = ${JSON.stringify(req.body)}`);
+
    //Importation de cryptojs pour  chiffrer le mail
    const cryptojs = require("crypto-js");
+   const validator = require("email-validator");
+   validator.validate(",");
    console.log("CONTENU :cryptojs");
    console.log(cryptojs);
    //Chiffre le mail avant de l'envoyer dans la base de donnée
-   const emailCryptoJs = cryptojs.HmacSHA256(req.body.email,`${process.env.CRYPTOJS_EMAIL}`).toString();
+   const emailCryptoJs = cryptojs.HmacSHA256(req.body.email, `${process.env.CRYPTOJS_EMAIL}`).toString();
    console.log("--->CONTENU: emailCryptoJs - contollers/auth")
-   console.log(  emailCryptoJs);
-   const dotenv = require("dotenv");
-   const result = dotenv.config();
-   
+   console.log(emailCryptoJs)
+
    bcrypt.hash(req.body.password, 10)
       .then(hash => {
          console.log(hash);
@@ -41,18 +42,24 @@ exports.signup = (req, res, next) => {
 
 };
 
-
-
-
-
-
 //On utilise login pour que l'utilisateur existant puisse se connecter à l'application
 //On va trouver le user, ds la base de donnée ,qui correspond à l'adresse email qui est rentré par l'utilisateur ds l'appliocation 
 //On compare le mot de passe entré avec le hash donné ds la base de donnée
 //Si la comparaison est bonne on lui renvoi le userid et le token
 exports.login = (req, res, next) => {
+   const cryptojs = require("crypto-js");
+   //Contenu de la requête
+   console.log("--->CONTENU login: req.body.email- contollers/auth")
+   console.log(req.body.email);
+   console.log("--->CONTENU login: req.body.password - contollers/auth")
+   console.log(req.body.password);
+   //Chiffrer l'email de la requête
+   const emailCryptoJs = cryptojs.HmacSHA256(req.body.email, `${process.env.CRYPTOJS_EMAIL}`).toString();
+   console.log("--->CONTENU: emailCryptoJs - contollers/auth")
+   console.log(emailCryptoJs)
 
-   User.findOne({ email: req.body.email })
+
+   User.findOne({ email: emailCryptoJs })
 
       .then(user => {
          if (user === null) {
