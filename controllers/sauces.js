@@ -42,6 +42,7 @@ exports.modifySauce = (req, res, next) => {
     //Et l'on recree l'url de l'image
     //Si il ny a pas de fichier, on récupère l'objet directement ds le corps de la requête
     //On va chercher la sauce correspondant à l'utilisateur
+    //Avec req.auth.userId on vérifie que la sauce que l'on traite appartient à l'utilisateur connecté
     const sauceObjet = req.file ? {
         ...JSON.parse(req.body.sauce),
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
@@ -69,32 +70,30 @@ exports.modifySauce = (req, res, next) => {
         });
 
 };
-
-
-
-
 exports.deleteSauce = (req, res, next) => {
-    Sauce.deleteOne({ _id: req.params.id })
-        .then(sauce => {
+    Sauce.findOne({ _id: req.params.id })
+        .then((sauce) => {            
             if (sauce.userId != req.auth.userId) {
-                res.status(401).json({ message: 'Non-autorisé' });
+                res.status(401).json({ message: 'Not authorised' });
             } else {
                 const filename = sauce.imageUrl.split('/images/')[1];
+                console.log(`filename=${filename}`);
                 fs.unlink(`images/${filename}`, () => {
                     sauce.deleteOne({ _id: req.params.id })
                         .then(() => { res.status(200).json({ message: 'Objet supprimé !' }) })
                         .catch(error => res.status(400).json({ error }));
                 });
             }
-
-
-
-        })
-        .catch(error => {
-            res.status(500).json({ error })
         });
 };
-       
+
+
+
+
+
+
+
+
 
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
