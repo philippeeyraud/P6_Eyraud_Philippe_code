@@ -8,6 +8,25 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const saucesRoutes = require('./routes/sauces');
 const path = require('path');
+const log =require('./utils/winston');
+log.info("test");
+const helmet = require("helmet");
+//Strict-Transport-Policy , indique au navigateur de préférer HTTPS à HTTP
+app.use(helmet.hsts({
+   maxAge: 123456,
+   includeSubDomains: false,
+})
+);
+//Helmet définit les x-frame-Options dans le header afin de prévenir les attaques de type clickjacking
+app.use(
+    helmet.frameguard({
+      action: "deny",
+    })
+   );
+//helmet.noSniff définit l'en-tête X-Content-Type-Options à nosniff. Cela empêche le reniflage des types MIME.
+app.use(helmet.noSniff());
+
+
 mongoose.connect(`${process.env.DB_URL}://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL_CLUSTER}`,
     {
         useNewUrlParser: true,

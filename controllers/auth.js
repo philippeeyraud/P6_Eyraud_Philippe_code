@@ -1,31 +1,36 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const log = require('../utils/winston');
 
 //Création de nouveau user à partir de l'app frontend
 //On récupere le hash du mot de passe que l'on va enregistrer ds un nouveau user ds la base de donnée
 //On enregistre le user ds la base de donnée
 exports.signup = (req, res, next) => {
-   console.log(`req body = ${JSON.stringify(req.body)}`);
-
+   log.info('SIGNUP');
+  
    //Importation de cryptojs pour  chiffrer le mail
    const cryptojs = require("crypto-js");
    const validator = require("email-validator");
    validator.validate(",");
+   
    console.log("CONTENU :cryptojs");
    console.log(cryptojs);
    //Chiffre le mail avant de l'envoyer dans la base de donnée
    const emailCryptoJs = cryptojs.HmacSHA256(req.body.email, `${process.env.CRYPTOJS_EMAIL}`).toString();
    console.log("--->CONTENU: emailCryptoJs - contollers/auth")
    console.log(emailCryptoJs)
-
+  
+  
    bcrypt.hash(req.body.password, 10)
-      .then(hash => {
+       .then(hash => {
          console.log(hash);
          const user = new User({
             email: emailCryptoJs,
             password: hash
          })
+
+        
          console.log(`user = ${JSON.stringify(user)}`);
          user.save()
 
@@ -41,7 +46,7 @@ exports.signup = (req, res, next) => {
 
 
 };
-
+log.info("test1");
 //On utilise login pour que l'utilisateur existant puisse se connecter à l'application
 //On va trouver le user, ds la base de donnée ,qui correspond à l'adresse email qui est rentré par l'utilisateur ds l'appliocation 
 //On compare le mot de passe entré avec le hash donné ds la base de donnée

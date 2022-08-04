@@ -14,13 +14,13 @@ const MIME_TYPES = {
 //Création d'un dossier image
 const imageDir = "./images";
 if(fs.existsSync(imageDir)) {
-    console.log("Dossier image déjà créé")
+    console.log('The path exists.');
 }else {
     fs.mkdir('./images', (err) => {
         if (err) {
             return console.error(err);
         }
-        console.log('Dossier images crée !');
+    
     });
 }
 
