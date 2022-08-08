@@ -17,7 +17,7 @@ app.use(helmet.hsts({
    includeSubDomains: false,
 })
 );
-//Helmet définit les x-frame-Options dans le header afin de prévenir les attaques de type clickjacking
+//Helmet définit les x-frame-Options dans le header afin de prévenir les attaques de type clickjacking(afficher une page sur une autre page)
 app.use(
     helmet.frameguard({
       action: "deny",
