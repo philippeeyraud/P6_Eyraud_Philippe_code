@@ -1,6 +1,7 @@
 const Sauce = require('../models/sauce');
 const fs = require('fs');
 const { json } = require('express');
+const { Logform } = require('winston');
 //L'objet requête va etre envoyée sous forme Json mais en chaîne de caractere donc il faut parser cet objet
 //On va supprimer deux champs _id(id de l'objet va être genéré par la base de données), et userId(la personne qui a crée l objet)
 //On va utiliser le userId du token d'auth.
@@ -12,8 +13,8 @@ exports.createSauce = (req, res, next) => {
         console.log(JSON.stringify(req.body));
 
         const sauceObject = JSON.parse(req.body.sauce);
-        console.log(req.auth);
-        console.log("ICI");
+        log.info(req.auth);
+        log.info("ICI");
         const sauce = new Sauce({
 
             ...sauceObject,
@@ -22,7 +23,7 @@ exports.createSauce = (req, res, next) => {
 
 
         });
-        console.log("LA");
+        log.info("LA");
         //Enregistrer l'objet ds la base
         sauce.save()
             .then(() => { res.status(201).json({ message: 'Objet enregistré !' }) })
@@ -30,7 +31,7 @@ exports.createSauce = (req, res, next) => {
 
     }
     catch (error) {
-        console.log(`erreur GLOBALE ${error}`);
+        log.info(`erreur GLOBALE ${error}`);
         return res.status(500).json({ error });
     }
 
@@ -153,7 +154,7 @@ exports.createLike = (req, res) => {
     }
 
     catch (error) {
-        console.log(`erreur  ${error}`);
+        log.info(`erreur  ${error}`);
         return res.status(500).json({ error });
     }
 }

@@ -14,7 +14,7 @@ const MIME_TYPES = {
 //Création d'un dossier image
 const imageDir = "./images";
 if(fs.existsSync(imageDir)) {
-    console.log('The path exists.');
+   
 }else {
     fs.mkdir('./images', (err) => {
         if (err) {
@@ -41,7 +41,7 @@ const storage = multer.diskStorage({
        const name = namewithoutext.split(' ').join('_');
         const extension = MIME_TYPES[file.mimetype];
         callback(null, name + Date.now() + '.' + extension);
-        console.log(name)
+        
     }
 });
 
