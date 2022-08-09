@@ -10,6 +10,7 @@ const saucesRoutes = require('./routes/sauces');
 const path = require('path');
 const log =require('./utils/winston');
 log.info("test");
+
 const helmet = require("helmet");
 //Strict-Transport-Policy , indique au navigateur de préférer HTTPS à HTTP
 app.use(helmet.hsts({
@@ -25,6 +26,7 @@ app.use(
    );
 //helmet.noSniff définit l'en-tête X-Content-Type-Options à nosniff. Cela empêche le reniflage des types MIME.
 app.use(helmet.noSniff());
+
 
 
 mongoose.connect(`${process.env.DB_URL}://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL_CLUSTER}`,
