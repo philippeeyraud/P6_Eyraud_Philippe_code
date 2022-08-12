@@ -238,3 +238,7 @@
 {"level":"info","message":"test","timestamp":"2022-08-12 10:24:33 AM +0200"}
 {"level":"info","message":"init","timestamp":"2022-08-12 10:27:29 AM +0200"}
 {"level":"info","message":"test","timestamp":"2022-08-12 10:27:29 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-12 04:40:10 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-12 04:40:10 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-12 04:47:25 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-12 04:47:25 PM +0200"}
