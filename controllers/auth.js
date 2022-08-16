@@ -21,26 +21,26 @@ exports.signup = (req, res, next) => {
       log.info(cryptojs);
       //Chiffre le mail avant de l'envoyer dans la base de donnée
       const emailCryptoJs = cryptojs.HmacSHA256(req.body.email, `${process.env.CRYPTOJS_EMAIL}`).toString();
-      console.log("--->CONTENU: emailCryptoJs - contollers/auth")
-      console.log(emailCryptoJs)
+      log.info("-CONTENU: emailCryptoJs - contollers/auth")
+      log.info(emailCryptoJs)
 
 
       bcrypt.hash(req.body.password, 10)
          .then(hash => {
-            console.log(hash);
+            log.info(hash);
             const user = new User({
                email: emailCryptoJs,
                password: hash
             })
 
 
-            console.log(`user = ${JSON.stringify(user)}`);
+            log.info(`user = ${JSON.stringify(user)}`);
             user.save()
 
                .then(() => res.status(201).json({ message: 'Utilisateur crée!' }))
 
                .catch((error) => {
-                  console.log(`error ${error}`);
+                  log.info(`error ${error}`);
                   return res.status(400).json({ error })
                }
                );
@@ -58,14 +58,14 @@ exports.signup = (req, res, next) => {
 exports.login = (req, res, next) => {
    const cryptojs = require("crypto-js");
    //Contenu de la requête
-   console.log("--->CONTENU login: req.body.email- contollers/auth")
-   console.log(req.body.email);
-   console.log("--->CONTENU login: req.body.password - contollers/auth")
-   console.log(req.body.password);
+   log.info("-CONTENU login: req.body.email- contollers/auth")
+   log.info(req.body.email);
+   log.info("--->CONTENU login: req.body.password - contollers/auth")
+   log.info(req.body.password);
    //Chiffrer l'email de la requête
    const emailCryptoJs = cryptojs.HmacSHA256(req.body.email, `${process.env.CRYPTOJS_EMAIL}`).toString();
-   console.log("--->CONTENU: emailCryptoJs - contollers/auth")
-   console.log(emailCryptoJs)
+   log.info("--->CONTENU: emailCryptoJs - contollers/auth")
+   log.info(emailCryptoJs)
 
 
    User.findOne({ email: emailCryptoJs })

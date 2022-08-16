@@ -244,3 +244,93 @@
 {"level":"info","message":"test","timestamp":"2022-08-12 04:47:25 PM +0200"}
 {"level":"info","message":"init","timestamp":"2022-08-12 05:13:43 PM +0200"}
 {"level":"info","message":"test","timestamp":"2022-08-12 05:13:43 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-15 11:03:56 AM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-15 11:03:56 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:18:23 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:18:24 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:36:04 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:36:04 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:36:22 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:36:22 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:36:49 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:36:49 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:37:29 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:37:29 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:37:54 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:37:54 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:38:22 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:38:22 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:39:37 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:39:38 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:41:06 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:41:06 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:42:21 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:42:21 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:43:39 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:43:40 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:43:40 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:45:06 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:45:06 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:45:06 PM +0200"}
+{"level":"info","message":"-CONTENU login: req.body.email- contollers/auth","timestamp":"2022-08-16 03:45:09 PM +0200"}
+{"level":"info","message":"pif@gmail.com","timestamp":"2022-08-16 03:45:09 PM +0200"}
+{"level":"info","message":"--->CONTENU login: req.body.password - contollers/auth","timestamp":"2022-08-16 03:45:09 PM +0200"}
+{"level":"info","message":"Afefeii8","timestamp":"2022-08-16 03:45:09 PM +0200"}
+{"level":"info","message":"--->CONTENU: emailCryptoJs - contollers/auth","timestamp":"2022-08-16 03:45:09 PM +0200"}
+{"level":"info","message":"ce68d27c8533cd6c55b70e60aa741f06dde4364e2d6c033ff4b7f11d2c1382ab","timestamp":"2022-08-16 03:45:09 PM +0200"}
+{"level":"info","message":"-CONTENU login: req.body.email- contollers/auth","timestamp":"2022-08-16 03:45:20 PM +0200"}
+{"level":"info","message":"pif@gmail.com","timestamp":"2022-08-16 03:45:20 PM +0200"}
+{"level":"info","message":"--->CONTENU login: req.body.password - contollers/auth","timestamp":"2022-08-16 03:45:20 PM +0200"}
+{"level":"info","message":"Afefeii88","timestamp":"2022-08-16 03:45:20 PM +0200"}
+{"level":"info","message":"--->CONTENU: emailCryptoJs - contollers/auth","timestamp":"2022-08-16 03:45:20 PM +0200"}
+{"level":"info","message":"ce68d27c8533cd6c55b70e60aa741f06dde4364e2d6c033ff4b7f11d2c1382ab","timestamp":"2022-08-16 03:45:20 PM +0200"}
+{"date":"Tue Aug 16 2022 15:45:25 GMT+0200 (heure d’été d’Europe centrale)","error":{},"exception":true,"level":"error","message":"uncaughtException: log is not defined\nReferenceError: log is not defined\n    at C:\\Users\\peyraud\\Documents\\Desktop\\P6_Eyraud_Philippe_GOOD\\backend\\controllers\\sauces.js:80:17\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)","os":{"loadavg":[0,0,0],"uptime":104230},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\peyraud\\Documents\\Desktop\\P6_Eyraud_Philippe_GOOD\\backend\\server.js"],"cwd":"C:\\Users\\peyraud\\Documents\\Desktop\\P6_Eyraud_Philippe_GOOD\\backend","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18313484,"external":19251011,"heapTotal":26628096,"heapUsed":23560960,"rss":55255040},"pid":11716,"uid":null,"version":"v16.14.0"},"stack":"ReferenceError: log is not defined\n    at C:\\Users\\peyraud\\Documents\\Desktop\\P6_Eyraud_Philippe_GOOD\\backend\\controllers\\sauces.js:80:17\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)","timestamp":"2022-08-16 03:45:25 PM +0200","trace":[{"column":17,"file":"C:\\Users\\peyraud\\Documents\\Desktop\\P6_Eyraud_Philippe_GOOD\\backend\\controllers\\sauces.js","function":null,"line":80,"method":null,"native":false},{"column":5,"file":"node:internal/process/task_queues","function":"processTicksAndRejections","line":96,"method":null,"native":false}]}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:47:21 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:47:22 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:47:22 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:48:45 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:48:45 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:48:46 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:49:40 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:49:40 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:49:41 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:50:15 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:50:40 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:50:40 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:50:40 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:52:47 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:52:47 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:52:48 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:53:56 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:53:56 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:53:57 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:54:24 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:54:24 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:54:24 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:55:10 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:55:10 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:55:11 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:55:45 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:55:45 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:55:45 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:56:25 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:56:25 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:56:26 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:57:07 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:57:07 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:57:08 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:57:36 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:57:37 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:57:37 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:58:07 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:58:07 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:58:08 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:58:22 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:58:22 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:58:23 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 03:59:07 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 03:59:07 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 03:59:07 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:00:12 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:00:12 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:00:13 PM +0200"}
