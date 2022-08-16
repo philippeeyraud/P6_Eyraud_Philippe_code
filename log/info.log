@@ -334,3 +334,33 @@
 {"level":"info","message":"init","timestamp":"2022-08-16 04:00:12 PM +0200"}
 {"level":"info","message":"test","timestamp":"2022-08-16 04:00:12 PM +0200"}
 {"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:00:13 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:04:06 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:04:06 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:04:20 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:04:20 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:04:20 PM +0200"}
+{"level":"info","message":"-CONTENU login: req.body.email- contollers/auth","timestamp":"2022-08-16 04:04:23 PM +0200"}
+{"level":"info","message":"pif@gmail.com","timestamp":"2022-08-16 04:04:23 PM +0200"}
+{"level":"info","message":"--->CONTENU login: req.body.password - contollers/auth","timestamp":"2022-08-16 04:04:23 PM +0200"}
+{"level":"info","message":"Afefeii88","timestamp":"2022-08-16 04:04:23 PM +0200"}
+{"level":"info","message":"--->CONTENU: emailCryptoJs - contollers/auth","timestamp":"2022-08-16 04:04:23 PM +0200"}
+{"level":"info","message":"ce68d27c8533cd6c55b70e60aa741f06dde4364e2d6c033ff4b7f11d2c1382ab","timestamp":"2022-08-16 04:04:23 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:41:22 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:41:22 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:41:23 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:41:43 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:42:01 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:42:01 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:42:01 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:42:18 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:42:18 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:42:19 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-08-16 04:44:08 PM +0200"}
+{"level":"info","message":"test","timestamp":"2022-08-16 04:44:08 PM +0200"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2022-08-16 04:44:09 PM +0200"}
+{"level":"info","message":"-CONTENU login: req.body.email- contollers/auth","timestamp":"2022-08-16 04:44:11 PM +0200"}
+{"level":"info","message":"pif@gmail.com","timestamp":"2022-08-16 04:44:11 PM +0200"}
+{"level":"info","message":"--->CONTENU login: req.body.password - contollers/auth","timestamp":"2022-08-16 04:44:11 PM +0200"}
+{"level":"info","message":"Afefeii88","timestamp":"2022-08-16 04:44:11 PM +0200"}
+{"level":"info","message":"--->CONTENU: emailCryptoJs - contollers/auth","timestamp":"2022-08-16 04:44:11 PM +0200"}
+{"level":"info","message":"ce68d27c8533cd6c55b70e60aa741f06dde4364e2d6c033ff4b7f11d2c1382ab","timestamp":"2022-08-16 04:44:11 PM +0200"}

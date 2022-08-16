@@ -13,7 +13,7 @@ exports.createSauce = (req, res, next) => {
 
         const sauceObject = JSON.parse(req.body.sauce);
         console.log(req.auth);
-       
+
         const sauce = new Sauce({
 
             ...sauceObject,
@@ -22,7 +22,7 @@ exports.createSauce = (req, res, next) => {
 
 
         });
-       
+
         //Enregistrer l'objet ds la base
         sauce.save()
             .then(() => { res.status(201).json({ message: 'Objet enregistré !' }) })
@@ -30,7 +30,7 @@ exports.createSauce = (req, res, next) => {
 
     }
     catch (error) {
-        
+
         return res.status(500).json({ error });
     }
 
@@ -72,12 +72,12 @@ exports.modifySauce = (req, res, next) => {
 };
 exports.deleteSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
-        .then((sauce) => {            
+        .then((sauce) => {
             if (sauce.userId != req.auth.userId) {
                 res.status(401).json({ message: 'Not authorised' });
             } else {
                 const filename = sauce.imageUrl.split('/images/')[1];
-                
+
                 fs.unlink(`images/${filename}`, () => {
                     sauce.deleteOne({ _id: req.params.id })
                         .then(() => { res.status(200).json({ message: 'Objet supprimé !' }) })
@@ -153,7 +153,7 @@ exports.createLike = (req, res) => {
     }
 
     catch (error) {
-       
+
         return res.status(500).json({ error });
     }
 }
