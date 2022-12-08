@@ -6,7 +6,11 @@ const { json } = require('express');
 //On va supprimer deux champs _id(id de l'objet va être genéré par la base de données), et userId(la personne qui a crée l objet)
 //On va utiliser le userId du token d'auth.
 
-exports.createMessage = (req, res, _next) => {
+
+
+
+exports.createMessage = (req, res, next) => {
+
 
     try {
 
@@ -19,7 +23,11 @@ exports.createMessage = (req, res, _next) => {
 
             ...messageObject,
             userId: req.auth.userId,
+
           //  imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`*/
+
+          
+
 
 
         });
@@ -36,6 +44,7 @@ log.error(`error dans create message ${error}`);
     }
 
 };
+
 exports.getActual = (_req, res) => {
    
     try { 
@@ -51,3 +60,19 @@ log.error(`error dans create test ${error}`);
     }
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

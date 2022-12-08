@@ -6,7 +6,9 @@ require("dotenv").config()
 const app = express();
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
+
 console.log(authRoutes);
+
 const messagesRoutes = require('./routes/messages');
 const saucesRoutes = require('./routes/sauces');
 const path = require('path');
@@ -55,7 +57,11 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/messages',messagesRoutes);
 app.use('/api/sauces', saucesRoutes);
+
 app.use('/api/test', testRoutes);
+
+
+
 app.use('/api/images', express.static(path.join(__dirname, 'images')));
 //export de l application express pour que l'on puisse y accèder depuis les fichiers de notre projet et particulierement node.
 module.exports = app;

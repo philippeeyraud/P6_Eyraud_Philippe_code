@@ -17,4 +17,7 @@ const messageSchema = mongoose.Schema({
     message_id: { type: Number,unique: true,required: true}
 });
 //Pour que ce schema soit utilisable,on va exporter mongoose.model pour utiliser notre schema ds la base de donnée.
+
 module.exports = mongoose.model('Message',messageSchema);
+
+
