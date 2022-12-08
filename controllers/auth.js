@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const log = require('../utils/winston');
 const sanitize = require('mongo-sanitize');
+const { Console } = require('console');
+const user = require('../models/user');
+
 //Création de nouveau user à partir de l'app frontend
 //On récupere le hash du mot de passe que l'on va enregistrer ds un nouveau user ds la base de donnée
 //On enregistre le user ds la base de donnée
@@ -30,7 +33,8 @@ exports.signup = (req, res, next) => {
             log.info(hash);
             const user = new User({
                email: emailCryptoJs,
-               password: hash
+               password: hash,
+
             })
 
 
@@ -107,17 +111,29 @@ exports.login = (req, res, next) => {
       })
 };
 
+exports.getCurrent = async (req, res, next) => {
+
+   res.status(200).json({ "message": "authentifié" });
+
+}
+
+exports.deleteCurrent = (req, res, next) => {
+ user.findOne({ _id: req.params.id })
+      .then((user) => {
+         if (user.userId != req.auth.userId) {
+            res.status(401).json({ message: 'Not authorised' });
+         }
+      })
+
+        user.deleteOne({ _id: req.params.id })
+            .then(() => { res.status(200).json({ message: ' supprimé !' }) })
+            .catch(error => res.status(400).json({ error }));
+
+}         
 
 
 
 
 
-
-
-
- //Crypter le mot passe
- //Verifier que le mail a un bon format
-    // formValidation.email = validateControl(this, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$", "emailErrorMsg", "Email non valide");
- //Utiliser crypto js pour hacher le mail
 
 
