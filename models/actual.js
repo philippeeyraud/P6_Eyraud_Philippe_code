@@ -1,8 +1,7 @@
-
 //importer mongoose 
 const mongoose = require('mongoose');
 //On va créer notre schéma de données
-const messageSchema = mongoose.Schema({
+const actualSchema = mongoose.Schema({
      
   
     userId: { type: String, required: true},
@@ -18,6 +17,4 @@ const messageSchema = mongoose.Schema({
 });
 //Pour que ce schema soit utilisable,on va exporter mongoose.model pour utiliser notre schema ds la base de donnée.
 
-module.exports = mongoose.model('Message',messageSchema);
-
-
+module.exports = mongoose.model('Actual',actualSchema);

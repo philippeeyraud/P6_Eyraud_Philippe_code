@@ -6,12 +6,17 @@ require("dotenv").config()
 const app = express();
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
+
+console.log(authRoutes);
+
 const messagesRoutes = require('./routes/messages');
 const saucesRoutes = require('./routes/sauces');
 const path = require('path');
+const testRoutes = require('./routes/test');
 const log =require('./utils/winston');
-log.info("test");
+log.info("messages");
 const helmet = require("helmet");
+const { Console } = require('console');
 //Strict-Transport-Policy , indique au navigateur de préférer HTTPS à HTTP
 app.use(helmet.hsts({
    maxAge: 123456,
@@ -52,6 +57,10 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/messages',messagesRoutes);
 app.use('/api/sauces', saucesRoutes);
+
+app.use('/api/test', testRoutes);
+
+
 
 app.use('/api/images', express.static(path.join(__dirname, 'images')));
 //export de l application express pour que l'on puisse y accèder depuis les fichiers de notre projet et particulierement node.

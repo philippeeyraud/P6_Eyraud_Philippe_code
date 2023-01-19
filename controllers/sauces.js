@@ -59,10 +59,6 @@ exports.modifySauce = (req, res, next) => {
                 const filename = sauce.imageUrl.split('/images/')[1];
 
             }
-
-
-
-
         })
         .catch((error) => {
             res.status(401).json({ error })
