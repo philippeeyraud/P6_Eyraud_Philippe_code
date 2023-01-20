@@ -9125,3 +9125,15 @@
 {"level":"info","message":"init","timestamp":"2023-01-19 03:55:20 PM +0100"}
 {"level":"info","message":"messages","timestamp":"2023-01-19 03:55:20 PM +0100"}
 {"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2023-01-19 03:55:26 PM +0100"}
+{"level":"info","message":"init","timestamp":"2023-01-19 08:14:51 PM +0100"}
+{"level":"info","message":"messages","timestamp":"2023-01-19 08:14:51 PM +0100"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2023-01-19 08:14:57 PM +0100"}
+{"level":"info","message":"init","timestamp":"2023-01-19 08:54:33 PM +0100"}
+{"level":"info","message":"messages","timestamp":"2023-01-19 08:54:33 PM +0100"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2023-01-19 08:54:33 PM +0100"}
+{"level":"info","message":"init","timestamp":"2023-01-19 08:57:07 PM +0100"}
+{"level":"info","message":"messages","timestamp":"2023-01-19 08:57:08 PM +0100"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2023-01-19 08:57:08 PM +0100"}
+{"level":"info","message":"init","timestamp":"2023-01-20 08:40:10 AM +0100"}
+{"level":"info","message":"messages","timestamp":"2023-01-20 08:40:10 AM +0100"}
+{"level":"info","message":"Connexion à MongoDB réussie !","timestamp":"2023-01-20 08:40:11 AM +0100"}
